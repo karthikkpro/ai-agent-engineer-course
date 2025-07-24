@@ -1,0 +1,88 @@
+site_name: Agent Engineer Course
+site_description: "A community-driven, open-source curriculum for mastering AI agent engineering"
+site_author: "AI Agent Lab"
+repo_url: https://github.com/ai-agent-lab/agent-engineer-course
+repo_name: ai-agent-lab/agent-engineer-course
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: "Roboto"
+    code: "Roboto Mono"
+  features:
+    - navigation.tabs # Top-level tabs
+    - navigation.tabs.sticky # Sticky tabs
+    - navigation.sections # Group sections
+    - navigation.expand # Expand navigation by default
+    - navigation.path # Show navigation path
+    - navigation.top # Back to top button
+    - search.highlight # Highlight search terms
+    - search.suggest # Search suggestions
+    - content.code.copy # Copy code button
+    - content.action.edit # Edit button
+    - content.action.view # View source button
+
+nav:
+  - Home: index.md
+  - Phase 0 - Foundations:
+      - "Overview": phase-0/index.md
+      - "0-1 Why AI Agents": phase-0/lesson-1.md
+      - "0-2 Core Concepts": phase-0/lesson-2.md
+  - Phase 1 - Tools & Prompts:
+      - "Overview": phase-1/index.md
+      - "1-1 Python for Agents": phase-1/1-tools-prompts.md
+  - Phase 2 - Agentic Workflows:
+      - "Overview": phase-2/index.md
+      - "2-1 ReAct Loops": phase-2/2-agentic-workflows.md
+  - Phase 3 - Multi-Agent:
+      - "Overview": phase-3/index.md
+      - "3-1 Orchestration": phase-3/3-multi-agent-orchestration.md
+  - Phase 4 - Production:
+      - "Overview": phase-4/index.md
+      - "4-1 Deployment": phase-4/4-production-deployment.md
+  - Phase 5 - Safety & RLHF:
+      - "Overview": phase-5/index.md
+      - "5-1 Guardrails": phase-5/5-advanced-safety.md
+  - Phase 6 - Portfolio:
+      - "Overview": phase-6/index.md
+      - "6-1 Showcase": phase-6/6-portfolio-leadership.md
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      enable_creation_date: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ai-agent-lab/agent-engineer-course
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/ai_agent_lab
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
