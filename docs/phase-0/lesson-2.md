@@ -224,11 +224,3 @@ context = docs[:3] # top 3 results
 **[Phase 1: Tools, Prompts & Memory →](../phase-1/)**
 
     Ready to start building? Learn Python integrations, prompt engineering, and memory systems.
-
-### Quick Navigation
-
-| Previous                         | Current               | Next                                    |
-| -------------------------------- | --------------------- | --------------------------------------- |
-| [0-1 Why AI Agents](lesson-1.md) | **0-2 Core Concepts** | [Phase 1: Tools & Prompts](../phase-1/) |
-
-**Course Progress:** Phase 0 → Lesson 2 of 2 ✅

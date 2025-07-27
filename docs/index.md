@@ -45,3 +45,11 @@ Engineer multi-layer guardrails, run RLHF feedback loops, and build continuous e
 ### Phase 6: Portfolio, Leadership & Foresight
 
 Showcase capstones, open-source contributions, leadership frameworks, and a lifelong learning cadence to stay current.
+
+---
+
+<div style="text-align:center; margin-top:2em;">
+  <a href="https://github.com/karthikkpro/ai-agent-engineer-course/stargazers" target="_blank">
+    <img src="https://img.shields.io/github/stars/karthikkpro/ai-agent-engineer-course?style=social" alt="GitHub stars" />
+  </a>
+</div>

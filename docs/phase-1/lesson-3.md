@@ -1,146 +1,214 @@
-```markdown
 ---
-title: "0-3 Thinking Like an Agent"
+title: "1-3 Tool Wrappers & LangChain"
 ---
 
-# Lesson 0-3: Thinking Like an Agent
+# Lesson 1-3: Tool Wrappers & LangChain
 
 **Learning Objectives**  
-By the end of this lesson, you will be able to:
-- Decompose complex goals into agent-compatible subtasks using agentic reasoning frameworks.
-- Apply behavior trees and chain-of-thought methods to structure multi-step processes.
-- Recognize common failure points and cost issues in autonomous workflows.
-- Sketch reflective loops and feedback cycles to increase agent reliability and robustness.
+By the end this lesson, you’ll be able to:
+
+- Explain the concept of “tools” in agent architectures and why wrappers are essential
+- Distinguish between **chains** (static pipelines) and **agents** (dynamic tool dispatch) in LangChain
+- Define and implement custom tools by subclassing or using decorators, including metadata and argument schemas
+- Compose a simple multi-tool reasoning agent using LangChain’s abstractions
 
 ---
 
-## 1. Introduction: Why Agentic Thinking Matters
+## 1. Introduction to Tools in Agents
 
-Successful agents don’t just execute pre-defined scripts; they plan ahead, adapt, and reflect at every step. This mindset goes beyond classic procedural code, asking:  
-- What is the end goal?  
-- What are the minimal, modular steps needed?  
-- What tools or reasoning methods apply for each step?  
-- How and when should the agent check its own progress or results?
+**What Is a Tool?**  
+A _tool_ is any callable function, API, or service the agent can invoke to perform a discrete action (e.g., search the web, do arithmetic, query a database). Wrappers standardize tools with:
 
-**Key Principle:** Agents break large goals into “bite-sized” subtasks, select the right tool for each, act, observe, and adjust based on results.
+- A **name** for planner reference
+- A **description** for prompting
+- A **typed interface** (arguments schema)
+- Built-in **error handling**
 
----
+**Why Wrappers?**
 
-## 2. Problem Decomposition: Goal → Subtasks
-
-To act autonomously, agents must transform broad goals into a sequence (or tree) of subtasks.  
-**Example:**  
-*Goal:* “Book a meeting with Alice and Bob next week.”
-
-**Decomposition:**
-- Search both users’ calendars for availability  
-- Propose potential times  
-- Draft invite and confirmation message  
-- Send invite and await acceptance
-
-**Diagram:**  
-```
-[image: goal-subtask-tree]
-A tree with root "Book meeting" branching to "Search calendars", "Propose times", "Draft invite", "Send/await acceptance"
-```
-*(Insert a simple tree diagram here for visual context.)*
-
-> **Did you know?** The process of breaking goals into ordered subtasks is called “task decomposition” and is a core building block of planning agents.
+- Uniform interface for the executor to dispatch calls
+- Metadata ensures the planner (LLM) knows which tools exist and how to call them
+- Simplifies logging, retries, and fallback logic
 
 ---
 
-## 3. Reasoning Frameworks: Behavior Trees & Chain-of-Thought
+## 2. Chains vs. Agents in LangChain
 
-### 3.1 Behavior Trees
+| Concept     | Chains                                         | Agents                                                 |
+| ----------- | ---------------------------------------------- | ------------------------------------------------------ |
+| Definition  | Static sequence of LLM calls + transforms      | Dynamic planner-driven loops that select and run tools |
+| Use Case    | Simple pipelines (e.g., summarize → translate) | Complex workflows requiring conditional tool selection |
+| Key Classes | `LLMChain`, `SequentialChain`                  | `AgentExecutor`, `initialize_agent`, `AgentType`       |
 
-Used widely in robotics and games, behavior trees structure agent logic into nodes:
-- **Selector Nodes:** Choose which branch to attempt, based on conditions.
-- **Sequence Nodes:** Execute children in order; fail if any step fails.
-- **Action Leaves:** Invoke a tool or LLM call.
-
-**Mini Diagram:**  
-```
-Book Meeting (Selector)
- ├─ Check calendars (Action)
- ├─ Find slots (Action)
- ├─ Propose time (Action)
- ├─ Draft invite (Action)
- └─ Send invite (Action)
+**Chain Example:**
 ```
 
-### 3.2 Chain-of-Thought Prompts
+from langchain import LLMChain, PromptTemplate
 
-Modern LLM-powered agents benefit from *thinking aloud* before acting:
-- “First, I’ll check Alice’s schedule. Next, I’ll check Bob’s. Then, I’ll look for overlapping free slots. Finally, I’ll send an invite.”
-- This step-wise reasoning helps the agent avoid skipping or muddling steps, providing transparency and traceability.
+template = PromptTemplate(
+input_variables=["text"],
+template="Summarize the following:\n\n{text}"
+)
+chain = LLMChain(llm=llm, prompt=template)
+output = chain.run(text="Long article content here...")
 
-> **Callout:** Chain-of-thought (CoT) reduces hallucinations and improves reliability in complex, multi-step tasks.
+```
 
 ---
 
-## 4. Reflective Loops and Self-Correction
+## 3. Defining Custom Tools
 
-Agents inevitably encounter uncertainty—missing info, unexpected outputs, or tool errors. Reflection is the art of checking results, diagnosing issues, and deciding what to do next.
+### 3.1 Subclassing `BaseTool`
 
-**Signs your agent needs reflection:**  
-- Stuck in infinite loop (keeps retrying same step)
-- Repeats failed actions (“Cannot find calendar. Cannot find calendar…”)
-- Outputs unclear or partial results
+```
 
-**Mitigation:**
-- **Observation logging**: Write each action/observation to memory for inspection.
-- **Conditional checks**: If output is blank, error, or duplicate, trigger different plan or escalate.
-- **Feedback cycle**: Use results of one step to alter subsequent steps (“if time slot not found, search next week”).
+from langchain.tools import BaseTool
+from pydantic import BaseModel
+
+class SearchParams(BaseModel):
+query: str
+
+class WebSearchTool(BaseTool):
+name = "web_search"
+description = "Search the web for information given a query."
+args_schema = SearchParams
+
+    def _run(self, query: str) -> str:
+        # Replace with real API call
+        results = search_api(query)
+        return results
+
+    async def _arun(self, query: str) -> str:
+        # Async variant if needed
+        results = await async_search_api(query)
+        return results
+
+```
+
+### 3.2 Using the `@tool` Decorator
+
+```
+
+from langchain.tools import tool
+
+@tool(name="calculator", description="Performs arithmetic calculations.")
+def calculator_fn(expression: str) -> str: # Simple eval for demonstration; use safe parser in production
+try:
+return str(eval(expression))
+except Exception as e:
+return f"Error: {e}"
+
+```
 
 ---
 
-## 5. Worked Example: Agent for Data Pipeline
+## 4. Composing Chains and Agents
 
-**Goal:** “Ingest a CSV file, clean the data, compute summary statistics, and email results.”
+### 4.1 Single-Step Chain
 
-**Agentic Decomposition:**
-- **Subtasks:**
-    1. Load CSV from given path.
-    2. Clean data (remove nulls/outliers).
-    3. Compute summary statistics (mean, median).
-    4. Generate summary report.
-    5. Draft and send email with results attached.
-
-**Behavior Tree:**  
 ```
-Ingest & Report Pipeline (Sequence)
- ├─ Load CSV (Action)
- ├─ Clean Data (Action)
- ├─ Compute Stats (Action)
- ├─ Generate Report (Action)
- └─ Send Email (Action)
-```
-**Chain-of-Thought Example:**
-- “I will start by loading the CSV file… The file loaded. I see there are missing values. I’ll remove rows with missing values… Now compute stats—mean, median, std. Compose a brief summary. Attach to an email and send to the recipient.”
 
-> **Case Study:** In production, such an agent failed when the CSV was missing columns; self-check logic added: “If expected columns not found, send error notification.”
+# A simple chain that wraps a prompt template
+
+from langchain import LLMChain, PromptTemplate
+
+prompt = PromptTemplate(template="Translate to French: {sentence}", input_variables=["sentence"])
+translate_chain = LLMChain(llm=llm, prompt=prompt)
+print(translate_chain.run(sentence="Hello, world!"))
+
+```
+
+### 4.2 Multi-Tool Agent
+
+```
+
+from langchain.agents import initialize_agent, AgentType
+
+tools = [WebSearchTool(), calculator_fn, SummarizerTool()] # tool instances or functions
+
+agent = initialize_agent(
+tools,
+llm,
+agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
+verbose=True
+)
+
+# Run a compound task
+
+task = "Find the population of Paris, calculate its square root, and summarize the result."
+response = agent.run(task)
+print(response)
+
+```
+
+- **AgentType.ZERO_SHOT_REACT_DESCRIPTION** uses tool descriptions to plan and act in a ReAct loop.
+- The agent prints each action and observation when `verbose=True`.
 
 ---
 
-## 6. Mini-Project Prompt
+## 5. Multi-Tool Reasoning Agent in Practice
 
-**Task:** Design a high-level agent flow for “Onboard a new employee” (inputs: name, start date, department).
+1. **Planner Stage:** LLM reviews `tools` metadata and returns an action JSON:
+```
 
-- **Step 1:** Sketch possible subtasks (e.g., create IT account, send onboarding document, schedule intro meeting, send welcome email).
-- **Step 2:** Draw a behavior tree or write a chain-of-thought outline explaining the agent’s reasoning.
+{"action": "web_search", "params": {"query": "population of Paris"}}
 
-*Optional: Write a Python pseudocode list representing these subtasks and how the agent would iterate through them.*
+```
+2. **Executor Stage:** Dispatcher calls `tools[action].run(**params)` or `_arun` for async.
+3. **Observation:** Agent logs the result, passes to planner for next step.
+4. **Loop:** Continues until the planner emits a `"finish"` action or meets stopping criteria.
+
+**Error Handling:**
+- Tools should catch exceptions and return error messages.
+- The planner can detect errors and choose alternative tools or abort gracefully.
+
+---
+
+## 6. Mini-Project: Build a Three-Tool Agent
+
+**Goal:** Create a LangChain agent with three tools—`web_search`, `calculator`, and `summarizer`—and run a compound query.
+
+**Steps:**
+
+1. **Define Tools**
+- Subclass `BaseTool` or use `@tool` for:
+  - `web_search(query: str) → str`
+  - `calculator(expression: str) → str`
+  - `summarizer(text: str) → str`
+
+2. **Initialize Agent**
+```
+
+from langchain.agents import initialize_agent, AgentType
+
+tools = [WebSearchTool(), calculator_fn, SummarizerTool()]
+agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION)
+
+```
+
+3. **Run Task**
+```
+
+result = agent.run("Get the current time in New York, add 5 hours, and summarize the plan.")
+print(result)
+
+```
+
+4. **Log Invocations**
+- Enable `verbose=True` to see each tool call and output.
+- Optionally write logs to a file for inspection.
 
 ---
 
 ## 7. Self-Check Questions
 
-1. Why should agents “think aloud” using chain-of-thought before acting?
-2. Name one benefit and one risk of automatically decomposing high-level goals.
-3. How does a behavior tree help prevent infinite loops or critical step omissions?
-4. What’s the first thing your onboarding agent should check before proceeding?
+1. What distinguishes a **chain** from an **agent** in LangChain?
+2. Why does a custom tool need a `name` and `description`?
+3. How does the agent planner decide which tool to call next?
+4. In your multi-tool agent, how would you implement a retry strategy for flaky API calls?
 
 ---
 
-**Coming Up:**  
-In the next phase you’ll learn to instantiate planners, implement behavior trees and chain-of-thought prompting, and embed basic logging for robust agent development.
+**Next Up:**
+Lesson 1-4 will cover **Memory & Basic RAG**, where you’ll integrate vector stores for long-term knowledge retrieval and context management.
+```

@@ -1,5 +1,7 @@
 # AI Agent Engineer Course
 
+[![GitHub stars](https://img.shields.io/github/stars/karthikkpro/ai-agent-engineer-course?style=social)](https://github.com/karthikkpro/ai-agent-engineer-course/stargazers)
+
 A community-driven, open-source curriculum for mastering the design, development, and deployment of intelligent AI agents.
 
 [**View the full course documentation**](https://karthikkpro.github.io/ai-agent-engineer-course/)
@@ -10,32 +12,9 @@ A community-driven, open-source curriculum for mastering the design, development
 
 AI agents are the next evolution of software automation. You'll learn not only how to build agents today but also how to design extensible, safe, and maintainable systems that evolve with new models and research.
 
-## Quickstart
-
-### Clone the Repo
-
-```bash
-git clone https://github.com/karthikkpro/ai-agent-engineer-course.git
-cd ai-agent-engineer-course
-```
-
-### Install Dependencies
-
-```bash
-pip install mkdocs mkdocs-material markdownlint
-```
-
-### Serve Locally
-
-```bash
-mkdocs serve
-```
-
-Visit http://127.0.0.1:8000 to see your landing page.
-
 ## Contributing
 
-We welcome all contributors—writer, coder, or designer. Please see our `CONTRIBUTING.md` guide for:
+We welcome all contributors—writer, coder, or designer. Please see our [CONTRIBUTING.md](CONTRIBUTING.md) guide for:
 
 - Issue reporting & labeling
 - Writing style & formatting rules

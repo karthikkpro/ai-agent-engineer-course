@@ -4,6 +4,12 @@ title: "0-1 Why AI Agents"
 
 # Lesson 0-1: Why AI Agents?
 
+!!! info "Lesson Overview"
+**Duration:** 45 minutes  
+ **Prerequisites:** Basic programming knowledge
+
+---
+
 **Learning Objectives**  
 By the end of this lesson, you will be able to:
 
@@ -12,10 +18,13 @@ By the end of this lesson, you will be able to:
 - Explain how AI agents augment human engineers rather than replace them.
 - Articulate why “agentic” skills are future-proof in a fast-changing AI landscape.
 
+---
+
 ## 1. Evolution of Automation to AI Agents
 
 ### 1.1 Rule-Based Automation
 
+!!! note "Early Automation"
 Early automation systems executed fixed, pre-defined scripts.
 
 - **Cron Jobs & Macros** – schedule tasks or record/replay keystrokes.
@@ -26,7 +35,8 @@ Early automation systems executed fixed, pre-defined scripts.
 
 ### 1.2 Expert Systems & Heuristic Tools
 
-In the 1980s–90s, expert systems encoded domain knowledge into if-then rules.
+!!! note "1980s–90s Era"
+Expert systems encoded domain knowledge into if-then rules.
 
 - **Chess Engines** – use heuristic evaluation functions to guide searches.
 - **Medical Diagnosis Systems** – apply symptom‐to‐disease mappings.  
@@ -34,6 +44,7 @@ In the 1980s–90s, expert systems encoded domain knowledge into if-then rules.
 
 ### 1.3 Large Language Models & Reactive “Smart” Tools
 
+!!! success "2020+ Breakthrough"
 With the advent of LLMs (e.g., GPT-3 in 2020), systems could generalize language tasks.
 
 - **Zero-Shot Prompting** – ask the model directly without examples.
@@ -44,7 +55,7 @@ With the advent of LLMs (e.g., GPT-3 in 2020), systems could generalize language
 ### 1.4 Agentic Autonomy
 
 **Definition:** AI agents plan, execute, observe, and adapt over multiple steps using tools and memory.  
-**Core Loop (ReAct + Planner–Executor–Retriever):**  
+**Core Loop (ReAct + Planner–Executor–Retriever):**
 [Insert Diagram: “Agent Loop” showing Planner → Executor → Retriever → Observation → Planner]
 
 1. **Planner** decides sub-tasks toward a goal.
@@ -94,34 +105,37 @@ With the advent of LLMs (e.g., GPT-3 in 2020), systems could generalize language
 **Objective:** Write a Python CLI agent that solves arithmetic queries via a public calculator API.
 
 1. **Setup:**
-   ```bash
-   pip install requests
-   touch react_agent.py
-   ```
+
+```bash
+pip install requests
+touch react_agent.py
+```
+
 2. **Agent Structure:**
 
-   ```python
-   import requests
+```python
+import requests
 
-   def calculate(expr):
-       resp = requests.get("http://api.mathjs.org/v4/", params={"expr": expr})
-       return resp.text
+def calculate(expr):
+    resp = requests.get("http://api.mathjs.org/v4/", params={"expr": expr})
+    return resp.text
 
-   def main():
-       question = input("Enter arithmetic question: ")
-       # Simple parse: assume format “A op B”
-       parts = question.split()
-       result = calculate(parts[0] + parts[1] + parts[2])
-       print("Answer:", result)
+def main():
+    question = input("Enter arithmetic question: ")
+    # Simple parse: assume format “A op B”
+    parts = question.split()
+    result = calculate(parts[0] + parts[1] + parts[2])
+    print("Answer:", result)
 
-   if __name__ == "__main__":
-       main()
-   ```
+if __name__ == "__main__":
+    main()
+```
 
 3. **Enhancements (Optional):**
-   - Add **timeout** and **retry** logic around `requests.get`.
-   - Log planner decisions and executor observations to console.
-   - Extend to handle multi-operation expressions by chaining calls.
+
+- Add **timeout** and **retry** logic around `requests.get`.
+- Log planner decisions and executor observations to console.
+- Extend to handle multi-operation expressions by chaining calls.
 
 ## 5. Self-Check Questions
 
@@ -137,11 +151,3 @@ With the advent of LLMs (e.g., GPT-3 in 2020), systems could generalize language
 **[0-2 Core Concepts →](lesson-2.md)**
 
     Deep dive into agent architecture patterns, autonomy vs automation, and environment interaction models.
-
-### Quick Navigation
-
-| Previous                     | Current               | Next                             |
-| ---------------------------- | --------------------- | -------------------------------- |
-| [Phase 0 Overview](index.md) | **0-1 Why AI Agents** | [0-2 Core Concepts](lesson-2.md) |
-
-**Course Progress:** Phase 0 → Lesson 1 of 2

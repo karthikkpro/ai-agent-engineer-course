@@ -1,79 +1,76 @@
 site_name: Agent Engineer Course
 site_description: "A community-driven, open-source curriculum for mastering AI agent engineering"
 site_author: "AI Agent Lab"
-repo_url: https://github.com/ai-agent-lab/agent-engineer-course
-repo_name: ai-agent-lab/agent-engineer-course
+repo_url: https://github.com/karthikkpro/ai-agent-engineer-course
+repo_name: karthikkpro/ai-agent-engineer-course
 edit_uri: edit/main/docs/
 
 theme:
   name: material
   palette:
-    # Palette toggle for light mode
     - scheme: default
-      primary: indigo
-      accent: indigo
+      primary: teal
+      accent: amber
       toggle:
-        icon: material/brightness-7
+        icon: material/weather-night
         name: Switch to dark mode
-    # Palette toggle for dark mode
     - scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: teal
+      accent: amber
       toggle:
-        icon: material/brightness-4
+        icon: material/weather-sunny
         name: Switch to light mode
   font:
-    text: "Roboto"
-    code: "Roboto Mono"
+    text: "Open Sans"
+    code: "Fira Code"
   features:
-    - navigation.tabs # Top-level tabs
-    - navigation.tabs.sticky # Sticky tabs
-    - navigation.sections # Group sections
-    - navigation.expand # Expand navigation by default
-    - navigation.path # Show navigation path
-    - navigation.top # Back to top button
-    - search.highlight # Highlight search terms
-    - search.suggest # Search suggestions
-    - content.code.copy # Copy code button
-    - content.action.edit # Edit button
-    - content.action.view # View source button
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.action.edit
+    - content.action.view
+  # Add custom footer
+  footer: partials/footer.html
 
 nav:
   - Home: index.md
-  - Phase 0 - Foundations:
-      - "Overview": phase-0/index.md
-      - "0-1 Why AI Agents": phase-0/lesson-1.md
-      - "0-2 Core Concepts": phase-0/lesson-2.md
-  - Phase 1 - Tools & Prompts:
-      - "Overview": phase-1/index.md
-      - "1-1 Python for Agents": phase-1/1-tools-prompts.md
-  - Phase 2 - Agentic Workflows:
-      - "Overview": phase-2/index.md
-      - "2-1 ReAct Loops": phase-2/2-agentic-workflows.md
-  - Phase 3 - Multi-Agent:
-      - "Overview": phase-3/index.md
-      - "3-1 Orchestration": phase-3/3-multi-agent-orchestration.md
-  - Phase 4 - Production:
-      - "Overview": phase-4/index.md
-      - "4-1 Deployment": phase-4/4-production-deployment.md
-  - Phase 5 - Safety & RLHF:
-      - "Overview": phase-5/index.md
-      - "5-1 Guardrails": phase-5/5-advanced-safety.md
-  - Phase 6 - Portfolio:
-      - "Overview": phase-6/index.md
-      - "6-1 Showcase": phase-6/6-portfolio-leadership.md
+  - Course:
+      - Phase 0 - Foundations:
+          - "0-1 Why AI Agents": phase-0/lesson-1.md
+          - "0-2 Core Concepts": phase-0/lesson-2.md
+          - "0-3 Thinking Like an Agent": phase-0/lesson-3.md
+      - Phase 1 - Tools & Prompts:
+          - "1-1 Python for Agents": phase-1/lesson-1.md
+          - "1-2 Prompt Engineering": phase-1/lesson-2.md
+          - "1-3 Tool Wrappers": phase-1/lesson-3.md
+          - "1-4 Memory & Basic RAG": phase-1/lesson-4.md
+          - "1-5 Model APIs": phase-1/lesson-5.md
+      - Phase 2 - Agentic Workflows:
+          - "2-1 ReAct Loops": phase-2/lesson-1.md
+          - "2-2 Prompt & Tool Chaining": phase-2/lesson-2.md
+          - "2-3 Hybrid RAG & Context": phase-2/lesson-3.md
+      - Phase 3 - Multi-Agent:
+          - "3-1 Orchestration": phase-3/3-multi-agent-orchestration.md
+      - Phase 4 - Production:
+          - "4-1 Deployment": phase-4/4-production-deployment.md
+      - Phase 5 - Safety & RLHF:
+          - "5-1 Guardrails": phase-5/5-advanced-safety.md
+      - Phase 6 - Portfolio:
+          - "6-1 Showcase": phase-6/6-portfolio-leadership.md
 
 plugins:
   - search
-  - git-revision-date-localized:
-      enable_creation_date: true
+  # Removed git-revision-date-localized to hide dates
 
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/ai-agent-lab/agent-engineer-course
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/ai_agent_lab
+      link: https://github.com/karthikkpro/ai-agent-engineer-course
 
 markdown_extensions:
   - admonition
