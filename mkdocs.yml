@@ -8,20 +8,20 @@ edit_uri: edit/main/docs/
 theme:
   name: material
   palette:
-    - scheme: default
-      primary: teal
-      accent: amber
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
     - scheme: slate
-      primary: teal
-      accent: amber
+      primary: blue
+      accent: lime
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
+    - scheme: default
+      primary: blue
+      accent: lime
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
   font:
-    text: "Open Sans"
+    text: "Inter"
     code: "Fira Code"
   features:
     - navigation.tabs
@@ -34,8 +34,29 @@ theme:
     - content.code.copy
     - content.action.edit
     - content.action.view
-  # Add custom footer
-  footer: partials/footer.html
+  icon:
+    repo: fontawesome/brands/github
+    admonition:
+      note: material/lightbulb-on-outline
+      tip: material/rocket-launch-outline
+      warning: material/alert-outline
+      example: material/flask-outline
+      question: material/help-circle-outline
+    nav:
+      Home: material/home
+      Course: material/school
+      "Phase 0 - Foundations": material/flag-outline
+      "Phase 1 - Tools & Prompts": material/tools
+      "Phase 2 - Agentic Workflows": material/robot-outline
+      "Phase 3 - Multi-Agent": material/account-group-outline
+      "Phase 4 - Production": material/server
+      "Phase 5 - Safety & RLHF": material/shield-check-outline
+      "Phase 6 - Portfolio": material/account-tie-outline
+  logo: assets/logo.png
+  favicon: assets/favicon.ico
+
+extra_css:
+  - assets/theme.css
 
 nav:
   - Home: index.md
@@ -63,14 +84,18 @@ nav:
       - Phase 6 - Portfolio:
           - "6-1 Showcase": phase-6/6-portfolio-leadership.md
 
-plugins:
-  - search
-  # Removed git-revision-date-localized to hide dates
-
 extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/karthikkpro/ai-agent-engineer-course
+  nav:
+    - name: "GIVE US A STAR ⭐"
+      link: "https://github.com/karthikkpro/ai-agent-engineer-course/stargazers"
+      icon: fontawesome/brands/github
+      class: header-star-btn
+
+plugins:
+  - search
 
 markdown_extensions:
   - admonition

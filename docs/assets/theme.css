@@ -1,0 +1,64 @@
+/* TruLens-style header gradient */
+.md-header {
+  background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 100%) !important;
+}
+
+/* Sidebar accent */
+.md-sidebar {
+  background: #18213a !important;
+}
+
+/* Callout cards */
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(30, 58, 138, 0.06);
+}
+
+/* Hero section tweaks */
+.hero-banner {
+  background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 100%);
+  color: #fff;
+  border-radius: 1.5em;
+  margin-bottom: 2.5em;
+  padding: 2.5em 2em 2em 2em;
+  box-shadow: 0 4px 32px rgba(30, 58, 138, 0.08);
+  text-align: center;
+}
+
+/* CTA button style */
+.cta-btn {
+  display: inline-block;
+  background: #2563eb;
+  color: #fff !important;
+  border-radius: 6px;
+  padding: 16px 36px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.3em;
+  box-shadow: 0 2px 8px rgba(30, 58, 138, 0.08);
+  border: 1px solid #1e3a8a;
+  transition: background 0.2s;
+  margin-top: 1.5em;
+}
+.cta-btn:hover {
+  background: #1e3a8a;
+}
+
+/* Navigation icons and spacing */
+.md-nav__item .md-nav__link {
+  font-size: 1.08em;
+  padding-left: 0.5em;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .hero-banner {
+    font-size: 1em;
+    padding: 1.2em 0.5em 1em 0.5em;
+  }
+  .cta-btn {
+    padding: 10px 18px;
+    font-size: 1em;
+  }
+}

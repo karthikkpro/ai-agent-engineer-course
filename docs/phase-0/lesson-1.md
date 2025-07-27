@@ -4,12 +4,6 @@ title: "0-1 Why AI Agents"
 
 # Lesson 0-1: Why AI Agents?
 
-!!! info "Lesson Overview"
-**Duration:** 45 minutes  
- **Prerequisites:** Basic programming knowledge
-
----
-
 **Learning Objectives**  
 By the end of this lesson, you will be able to:
 
