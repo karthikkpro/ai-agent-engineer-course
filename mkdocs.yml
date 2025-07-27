@@ -1,6 +1,6 @@
-site_name: Agent Engineer Course
-site_description: "A community-driven, open-source curriculum for mastering AI agent engineering"
-site_author: "AI Agent Lab"
+site_name: AI Agent Engineer Course
+site_description: "A hands-on, open-source curriculum for learning, building, and deploying AI agents, multi-agent systems, and autonomous workflows."
+site_author: "Karthik K Pro and contributors"
 repo_url: https://github.com/karthikkpro/ai-agent-engineer-course
 repo_name: karthikkpro/ai-agent-engineer-course
 edit_uri: edit/main/docs/
@@ -93,6 +93,33 @@ extra:
       link: "https://github.com/karthikkpro/ai-agent-engineer-course/stargazers"
       icon: fontawesome/brands/github
       class: header-star-btn
+  meta:
+    - name: "keywords"
+      content: "AI agent course, AI agent engineering, learn AI agents, autonomous agents, multi-agent systems, LLM agents, LangChain, agentic workflows, open source AI, AI automation, agent tutorial, agent bootcamp, AI developer, AI workflow, RLHF, RAG, Python AI, agent orchestration, production AI, agent safety, prompt engineering, agent deployment, agent learning, agent leadership"
+    - name: "description"
+      content: "A hands-on, open-source curriculum for learning, building, and deploying AI agents, multi-agent systems, and autonomous workflows. Includes Python, LangChain, RAG, RLHF, and more."
+    - name: "robots"
+      content: "index, follow"
+    - name: "author"
+      content: "Karthik K Pro and contributors"
+    - name: "og:title"
+      content: "AI Agent Engineer Course"
+    - name: "og:description"
+      content: "A hands-on, open-source curriculum for learning, building, and deploying AI agents, multi-agent systems, and autonomous workflows."
+    - name: "og:type"
+      content: "website"
+    - name: "og:url"
+      content: "https://karthikkpro.github.io/ai-agent-engineer-course/"
+    - name: "og:image"
+      content: "https://karthikkpro.github.io/ai-agent-engineer-course/assets/logo.png"
+    - name: "twitter:card"
+      content: "summary_large_image"
+    - name: "twitter:title"
+      content: "AI Agent Engineer Course"
+    - name: "twitter:description"
+      content: "A hands-on, open-source curriculum for learning, building, and deploying AI agents, multi-agent systems, and autonomous workflows."
+    - name: "twitter:image"
+      content: "https://karthikkpro.github.io/ai-agent-engineer-course/assets/logo.png"
 
 plugins:
   - search
