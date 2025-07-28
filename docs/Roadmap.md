@@ -1,65 +1,86 @@
-Roadmap.md – AI Agent Engineer Course (v1.0)
-Course style: text-first lessons, embedded code, optional images
-Target audience: mid-level software engineers moving AI-agent work
-Pacing guide: ≈ 12–16 weeks for core track + 4-6 week elective(s)
+---
+title: "Course Roadmap"
+description: "Comprehensive roadmap for the AI Agent Engineer Course"
+---
 
-Phase 0 – Foundations & Mindset (1–2 wks)
-#	Lesson	Key outcomes
-0-1	Why AI Agents?	Evolution, automation vs autonomy, mini ReAct script
-0-2	Core Concepts	Planner ∙ Executor ∙ Retriever loop, tool registry, memory
-0-3	Thinking Like an Agent	Problem decomposition, behavior trees, reflection loops
-Phase 1 – Essential Tools, Prompts & Memory (2–3 wks)
-#	Lesson	Key outcomes
-1-1	Python for Agents	Tool functions, async HTTP, Pydantic validation
-1-2	Prompt Engineering	Zero/few-shot & CoT prompts, templates, debugging
-1-3	Tool Wrappers & LangChain	Chains vs agents, custom tools, multi-tool agent
-1-4	Memory & Basic RAG	Vector stores, embeddings, doc-QA agent
-1-5	Model APIs	GPT-4o, Claude 4, OSS models; A/B benchmarking
-Phase 2 – Agentic Workflows & Reliability (2–3 wks)
-#	Lesson	Key outcomes
-2-A	Agent Loop Deep Dive	ReAct internals, dead-loop guards, retries, tracing
-2-B	Prompt & Tool Chaining	Conditional branches, provider abstraction, fallbacks
-2-C	Hybrid RAG & Context	Vector vs graph vs hybrid, long-context tactics
-2-D	Evaluation & Tracing	Cost/latency metrics, hallucination tests, LangSmith
-Phase 3 – Multi-Agent Orchestration (2–3 wks)
-#	Lesson	Key outcomes
-3-1	Framework Survey	CrewAI / LangGraph / AutoGen feature matrix
-3-2	Collaboration Patterns	Planner-worker-reviewer, supervisor guardrails
-3-3	State & DAG Orchestration	Event-driven vs static DAGs, LangGraph DSL
-3-4	Advanced RAG Pipelines	Multi-tenant stores, secure chunking, scaling
-Phase 4 – Production Deployment & Ops (2–3 wks)
-#	Lesson	Key outcomes
-4-A	Containerization & Serverless	Docker builds, AWS Lambda / Vercel deploy
-4-B	CI/CD & Secrets	GitHub Actions, secret scanning, test matrix
-4-C	Observability & Incidents	Logs, SLO/SLA, runbooks, alert routing
-4-D	Security & Compliance	OAuth, RBAC, sandboxing, audit trails
-Phase 5 – Advanced Safety, RLHF & Continuous Learning (2–3 wks)
-#	Lesson	Key outcomes
-5-A	Guardrails Engineering	Multi-layer guards, jailbreak fuzzing
-5-B	RLHF & Policy Tuning	DPO, reward models, federated loops
-5-C	Continuous Evaluation	REALM-Bench, CI benchmarks, auto-reporting
-Phase 6 – Portfolio, Leadership & Foresight (2–3 wks)
-#	Lesson	Key outcomes
-6-A	Capstone Showcase	End-to-end agent project, rubric
-6-B	Open Source & Community	Repo structure, contribution workflow
-6-C	Lifelong Learning Loop	Research feeds, quarterly sprints, trends
-Elective Tracks (pick 1+ | 4–6 wks each)
-AI for Geospatial & Green Infra - Financial Agents & Compliance
+# 🗺️ Course Roadmap
 
-Healthcare Agents & Voice Biomarkers - Low-Level LLM (C++/CUDA)
+!!! info "Course Overview"
+    - **Duration**: 12–16 weeks core + 4-6 weeks electives
+    - **Target**: Mid-level software engineers
+    - **Style**: Text-first with embedded code
 
-Voice Agent Engineering - Enterprise Orchestration (Azure/Power Platform)
+---
 
-Multimodal Agents (Vision + Audio)
+## 📚 Core Curriculum
 
-Course Totals
-Core phases: 6 - Lessons: 22 - Words: ≈ 39 k - Images/diagrams: ≈ 40
+### Phase 0: Foundations & Mindset (1–2 weeks)
+- **0-1** Why AI Agents? - Evolution, automation vs autonomy
+- **0-2** Core Concepts - Planner ∙ Executor ∙ Retriever loop
+- **0-3** Thinking Like an Agent - Problem decomposition, behavior trees
 
-Electives: 7 tracks - Overall duration: 12–16 wks + electives
+### Phase 1: Essential Tools & Techniques (2–3 weeks)
+- **1-1** Python for Agents - Tool functions, async HTTP, Pydantic
+- **1-2** Prompt Engineering - Zero/few-shot & CoT prompts
+- **1-3** Tool Wrappers & LangChain - Chains vs agents, custom tools
+- **1-4** Memory & Basic RAG - Vector stores, embeddings
+- **1-5** Model APIs - GPT-4o, Claude 4, OSS models
 
-Implementation Notes
-Hosted on GitHub via MkDocs Material (site + search + versioning)
+### Phase 2: Agentic Workflows (2–3 weeks)
+- **2-1** Agent Loop Deep Dive - ReAct internals, dead-loop guards
+- **2-2** Prompt & Tool Chaining - Conditional branches, fallbacks
+- **2-3** Hybrid RAG & Context - Vector vs graph vs hybrid
+- **2-4** Evaluation & Tracing - Cost/latency metrics, LangSmith
 
-License: CC-BY-SA 4.0 - Quarterly doc sprints & Discussions for updates
+### Phase 3: Multi-Agent Orchestration (2–3 weeks)
+- **3-1** Multi-Agent Orchestration - Framework survey
+- **3-2** Advanced RAG Pipelines - Multi-tenant stores, scaling
+- **3-3** State & DAG Orchestration - Event-driven vs static DAGs
+- **3-4** Collaboration Patterns - Planner-worker-reviewer
+- **3-5** Framework Survey - CrewAI / LangGraph / AutoGen
 
-CI: markdown-lint, link-checker, spell-checker, auto-deploy to Pages
+### Phase 4: Production Deployment (2–3 weeks)
+- **4-1** Production Deployment - Containerization, serverless
+- **4-2** Containerization & Serverless - Docker, AWS Lambda
+- **4-3** CI/CD & Secrets - GitHub Actions, secret scanning
+- **4-4** Observability & Incidents - Logs, SLO/SLA, runbooks
+- **4-5** Security & Compliance - OAuth, RBAC, sandboxing
+
+### Phase 5: Advanced Safety (2–3 weeks)
+- **5-1** Advanced Safety - Multi-layer guardrails
+- **5-2** Guardrails Engineering - Safety frameworks
+- **5-3** RLHF & Policy Tuning - DPO, reward models
+- **5-4** Continuous Evaluation - REALM-Bench, CI benchmarks
+
+### Phase 6: Portfolio & Leadership (2–3 weeks)
+- **6-1** Portfolio Leadership - Portfolio development
+- **6-2** Capstone Showcase - End-to-end agent project
+- **6-3** Open Source & Community - Repo structure
+- **6-4** Lifelong Learning Loop - Research feeds, trends
+
+---
+
+## 🎓 Elective Tracks (4-6 weeks each)
+
+- **🌍 AI for Geospatial & Green Infrastructure**
+- **💰 Financial Agents & Compliance**
+- **🏥 Healthcare Agents & Voice Biomarkers**
+- **⚡ Low-Level LLM (C++/CUDA)**
+- **🎤 Voice Agent Engineering**
+- **🏢 Enterprise Orchestration (Azure/Power Platform)**
+- **👁️ Multimodal Agents (Vision + Audio)**
+
+---
+
+## 📊 Course Stats
+
+- **Core Phases**: 6
+- **Core Lessons**: 22
+- **Elective Tracks**: 7
+- **Total Duration**: 12–16 weeks + electives
+- **Content**: ≈ 39,000 words, ≈ 40 images/diagrams
+
+---
+
+!!! success "Ready to Start?"
+    [:rocket: **Begin Learning**](phase-0/lesson-1/){ .md-button .md-button--primary }

@@ -13,6 +13,7 @@
   animation: iridescent 8s ease-in-out infinite !important;
   color: #1a1a1a !important; /* Darker text for better legibility */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+  padding: 0.5rem 0 0 0 !important;
 }
 
 @keyframes iridescent {
@@ -55,7 +56,7 @@
   text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8) !important; /* White shadow for contrast */
   color: #1a1a1a !important; /* Dark text */
   font-weight: 500 !important;
-  padding: 0.5rem 1rem !important; /* Add padding for button-like appearance */
+  padding: 0.25rem 0.75rem !important; /* Smaller padding for smaller buttons */
   border-radius: 6px !important; /* Rounded corners */
   margin: 0.25rem !important; /* Add some spacing between tabs */
   transition: all 0.3s ease !important; /* Smooth transitions */
@@ -89,11 +90,6 @@
   ) !important; /* More opaque for active state */
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25) !important; /* Stronger shadow for active */
   border: 2px solid rgba(255, 255, 255, 0.5) !important; /* More visible border for active */
-}
-
-/* Tab container styling */
-.md-tabs__list {
-  padding: 0.5rem !important; /* Add padding to the tab container */
 }
 
 .md-tabs__item {
@@ -158,4 +154,8 @@
   .md-nav__link {
     padding: 0.5rem 1rem !important;
   }
+}
+
+.md-nav--primary .md-nav__link[for="__toc"] {
+  display: none !important;
 }
