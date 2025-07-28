@@ -24,7 +24,7 @@ We welcome all contributors—writer, coder, or designer. Please see our [CONTRI
 ## Stay Connected
 
 - **Discussions:** [GitHub Discussions](https://github.com/karthikkpro/ai-agent-engineer-course/discussions) to propose new modules or ask questions.
-- **Roadmap:** Check `Roadmap.md` for upcoming lessons and elective ideas.
+- **Roadmap:** Check [Roadmap.md](Roadmap.md) for upcoming lessons and elective ideas.
 - **Sprints:** Participate in quarterly docs sprints to add emerging topics like vision-enabled agents and new agent frameworks.
 
 ---

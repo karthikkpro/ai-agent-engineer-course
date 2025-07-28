@@ -1,64 +1,161 @@
-/* TruLens-style header gradient */
+/* ===== HEADER & TABS ===== */
+/* Iridescent gradient header */
 .md-header {
-  background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 100%) !important;
+  background: linear-gradient(
+    135deg,
+    #00d4aa 0%,
+    #0099cc 25%,
+    #6666ff 50%,
+    #9933ff 75%,
+    #ff66cc 100%
+  ) !important;
+  background-size: 400% 400% !important;
+  animation: iridescent 8s ease-in-out infinite !important;
+  color: #1a1a1a !important; /* Darker text for better legibility */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
 }
 
-/* Sidebar accent */
-.md-sidebar {
-  background: #18213a !important;
-}
-
-/* Callout cards */
-.md-typeset .admonition,
-.md-typeset details {
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(30, 58, 138, 0.06);
-}
-
-/* Hero section tweaks */
-.hero-banner {
-  background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 100%);
-  color: #fff;
-  border-radius: 1.5em;
-  margin-bottom: 2.5em;
-  padding: 2.5em 2em 2em 2em;
-  box-shadow: 0 4px 32px rgba(30, 58, 138, 0.08);
-  text-align: center;
-}
-
-/* CTA button style */
-.cta-btn {
-  display: inline-block;
-  background: #2563eb;
-  color: #fff !important;
-  border-radius: 6px;
-  padding: 16px 36px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.3em;
-  box-shadow: 0 2px 8px rgba(30, 58, 138, 0.08);
-  border: 1px solid #1e3a8a;
-  transition: background 0.2s;
-  margin-top: 1.5em;
-}
-.cta-btn:hover {
-  background: #1e3a8a;
-}
-
-/* Navigation icons and spacing */
-.md-nav__item .md-nav__link {
-  font-size: 1.08em;
-  padding-left: 0.5em;
-}
-
-/* Responsive tweaks */
-@media (max-width: 600px) {
-  .hero-banner {
-    font-size: 1em;
-    padding: 1.2em 0.5em 1em 0.5em;
+@keyframes iridescent {
+  0%,
+  100% {
+    background-position: 0% 50%;
   }
-  .cta-btn {
-    padding: 10px 18px;
-    font-size: 1em;
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.md-header__title {
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8) !important; /* White shadow for contrast */
+  color: #1a1a1a !important; /* Dark text */
+  font-weight: 600 !important;
+}
+
+.md-header__source {
+  color: #1a1a1a !important; /* Dark text for source */
+}
+
+/* Iridescent tabs */
+.md-tabs {
+  background: linear-gradient(
+    135deg,
+    #00d4aa 0%,
+    #0099cc 25%,
+    #6666ff 50%,
+    #9933ff 75%,
+    #ff66cc 100%
+  ) !important;
+  background-size: 400% 400% !important;
+  animation: iridescent 8s ease-in-out infinite !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Tab link styling - make them look like buttons */
+.md-tabs__link {
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8) !important; /* White shadow for contrast */
+  color: #1a1a1a !important; /* Dark text */
+  font-weight: 500 !important;
+  padding: 0.5rem 1rem !important; /* Add padding for button-like appearance */
+  border-radius: 6px !important; /* Rounded corners */
+  margin: 0.25rem !important; /* Add some spacing between tabs */
+  transition: all 0.3s ease !important; /* Smooth transitions */
+  border: 2px solid transparent !important; /* Transparent border for hover effect */
+}
+
+/* Button-like hover effect */
+.md-tabs__link:hover,
+.md-tabs__link--active {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.25
+  ) !important; /* Semi-transparent white background */
+  backdrop-filter: blur(10px) !important; /* Glassmorphism effect */
+  border-radius: 8px !important; /* Slightly more rounded on hover */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important; /* Drop shadow */
+  color: #000000 !important; /* Darker text on hover */
+  border: 2px solid rgba(255, 255, 255, 0.3) !important; /* Subtle border */
+  transform: translateY(-1px) !important; /* Slight lift effect */
+}
+
+/* Active tab styling */
+.md-tabs__link--active {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.35
+  ) !important; /* More opaque for active state */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25) !important; /* Stronger shadow for active */
+  border: 2px solid rgba(255, 255, 255, 0.5) !important; /* More visible border for active */
+}
+
+/* Tab container styling */
+.md-tabs__list {
+  padding: 0.5rem !important; /* Add padding to the tab container */
+}
+
+.md-tabs__item {
+  margin: 0 0.25rem !important; /* Space between tab items */
+}
+
+/* ===== SIDEBAR NAVIGATION ===== */
+/* Let Material for MkDocs handle navigation completely - standard behavior */
+.md-nav__link {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Navigation icons */
+.md-nav__link .emoji {
+  font-size: 1em !important;
+  margin-right: 0.25rem !important;
+}
+
+/* ===== CONTENT AREA ===== */
+/* Ensure proper content layout */
+.md-main {
+  /* Let Material for MkDocs handle layout */
+}
+
+.md-content {
+  /* Let Material for MkDocs handle content positioning */
+}
+
+/* ===== ADMONITIONS ===== */
+/* Fix admonition icon overlap */
+.admonition-title::before {
+  left: 0.5rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  position: absolute !important;
+}
+
+/* ===== CODE BLOCKS ===== */
+/* Use Material for MkDocs' built-in syntax highlighting */
+.md-typeset .highlight {
+  position: relative;
+}
+
+/* ===== IMAGES ===== */
+.md-typeset img {
+  border-radius: 8px !important;
+  max-width: 100% !important;
+}
+
+/* ===== DARK MODE ===== */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #6366f1 !important;
+  --md-primary-bg-color: #ffffff !important;
+}
+
+/* ===== RESPONSIVE ===== */
+/* Ensure proper mobile behavior */
+@media (max-width: 76.1875em) {
+  .md-nav__link {
+    padding: 0.5rem 1rem !important;
   }
 }

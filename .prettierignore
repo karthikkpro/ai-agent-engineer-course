@@ -1,0 +1,12 @@
+# Ignore markdown files to prevent breaking Material for MkDocs admonitions
+*.md
+
+# Ignore documentation files
+docs/**/*.md
+
+# Ignore other files that shouldn't be formatted
+site/
+.git/
+node_modules/
+*.min.js
+*.min.css 
