@@ -49,6 +49,7 @@ extra_javascript:
 
 nav:
   - "🏠 Home": index.md
+  - "🗺️ Roadmap": Roadmap.md
   - "📚 Course":
       - "🎯 Phase 0 - Foundations":
           - "0-1 Why AI Agents": phase-0/lesson-1.md
