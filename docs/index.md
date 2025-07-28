@@ -1,6 +1,15 @@
 ---
-title: "AI Agent Engineer Course"
-description: "Master the design, development, and deployment of intelligent AI agents. Hands-on, open-source, and community-driven."
+title: "AI Agent Engineer Course - Master AI Agent Development"
+description: "Learn to build, deploy, and scale intelligent AI agents with hands-on projects. Free, open-source curriculum covering LangChain, RAG, multi-agent systems, and production deployment."
+keywords: "AI agents, agent engineering, LangChain, RAG, multi-agent systems, AI development, machine learning, autonomous systems, prompt engineering, vector databases"
+author: "Karthik K Pro"
+og_title: "AI Agent Engineer Course - Master AI Agent Development"
+og_description: "Learn to build, deploy, and scale intelligent AI agents with hands-on projects. Free, open-source curriculum."
+og_type: "website"
+og_url: "https://karthikkpro.github.io/ai-agent-engineer-course/"
+twitter_card: "summary_large_image"
+twitter_title: "AI Agent Engineer Course"
+twitter_description: "Master AI agent development with hands-on projects"
 ---
 
 # 🚀 AI Agent Engineer Course

@@ -1,0 +1,54 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "AI Agent Engineer Course",
+  "description": "A comprehensive, hands-on curriculum for learning to build, deploy, and scale intelligent AI agents, multi-agent systems, and autonomous workflows.",
+  "url": "https://karthikkpro.github.io/ai-agent-engineer-course/",
+  "provider": {
+    "@type": "Organization",
+    "name": "Karthik K Pro",
+    "url": "https://github.com/karthikkpro"
+  },
+  "courseMode": "Online",
+  "educationalLevel": "Intermediate",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "timeRequired": "P12W",
+  "teaches": [
+    "AI Agent Development",
+    "LangChain Framework",
+    "Retrieval-Augmented Generation (RAG)",
+    "Multi-Agent Systems",
+    "Prompt Engineering",
+    "Vector Databases",
+    "Production Deployment",
+    "AI Safety and Guardrails"
+  ],
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "Artificial Intelligence"
+    },
+    {
+      "@type": "Thing",
+      "name": "Machine Learning"
+    },
+    {
+      "@type": "Thing",
+      "name": "Software Engineering"
+    }
+  ],
+  "hasCourseInstance": [
+    {
+      "@type": "CourseInstance",
+      "courseMode": "Online",
+      "isAccessibleForFree": true,
+      "inLanguage": "en"
+    }
+  ],
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Software Engineers",
+    "educationalLevel": "Intermediate"
+  }
+}

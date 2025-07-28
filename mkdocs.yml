@@ -1,6 +1,7 @@
 site_name: AI Agent Engineer Course
-site_description: "A hands-on, open-source curriculum for learning, building, and deploying AI agents, multi-agent systems, and autonomous workflows."
+site_description: "Master AI agent engineering with hands-on projects. Learn to build, deploy, and scale intelligent AI agents, multi-agent systems, and autonomous workflows. Free, open-source curriculum."
 site_author: "Karthik K Pro and contributors"
+site_url: https://karthikkpro.github.io/ai-agent-engineer-course/
 repo_url: https://github.com/karthikkpro/ai-agent-engineer-course
 repo_name: karthikkpro/ai-agent-engineer-course
 edit_uri: edit/main/docs/
@@ -42,6 +43,9 @@ theme:
 
 extra_css:
   - assets/theme.css
+
+extra_javascript:
+  - https://unpkg.com/@structured-data/schema-dot-org@1.0.0/dist/schema-dot-org.min.js
 
 nav:
   - "🏠 Home": index.md
@@ -89,10 +93,27 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/karthikkpro/ai-agent-engineer-course
       name: GitHub
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/karthikkpro
+      name: Twitter
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/karthikkpro
+      name: LinkedIn
+
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
+
+  version:
+    provider: mike
 
 plugins:
   - search:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - minify:
+      minify_html: true
+  - git-revision-date-localized:
+      enable_creation_date: true
 
 markdown_extensions:
   - abbr
